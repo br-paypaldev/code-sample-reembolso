@@ -6,17 +6,19 @@ $version = '109.0';
 //e URLs da API.
 if ($sandbox) {
     //credenciais da API para o Sandbox
-    $user = 'jeffprestes_api1.gmail.com';
-    $pswd = '3SZKBPGTTLMVQ66B';
-    $signature = 'ATutHe2f5sqGdXTHx0Gdsr3F4EnaAPbdeidoBxokDfl3cK.mR1XmuSHH';
+    //Caso ainda nao tenha, veja como gerar a sua em: https://www.paypal-brasil.com.br/desenvolvedores/tutorial/utilizando-o-novo-paypal-sandbox/
+    $user = 'xxxxxxxx';
+    $pswd = 'xxxxxx';
+    $signature = 'xxxxxxx';
  
     //URL da PayPal para redirecionamento, não deve ser modificada
     $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
 } else {
     //credenciais da API para produção
-    $user = 'jeffprestes_api1.novatrix.com.br';
-    $pswd = 'QNQP9Y4Y2AZE4TZ9';
-    $signature = 'APBKuQ1nj5ru.2babcXygk2y7ME7AH4O8F2DxLE-Dun.IYixfDZsj7-R';
+    //Para obte-las, apos criar a sua conta PayPal siga as instrucoes em: https://www.paypal-brasil.com.br/desenvolvedores/tutorial/criando-e-gerenciando-as-credenciais-da-api/
+    $user = 'xxxxxxxx';
+    $pswd = 'xxxxxxxx';
+    $signature = 'xxxxxxxx';
  
     //URL da PayPal para redirecionamento, não deve ser modificada
     $paypalURL = 'https://www.paypal.com/cgi-bin/webscr';
