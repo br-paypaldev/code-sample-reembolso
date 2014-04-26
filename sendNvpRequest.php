@@ -37,19 +37,23 @@ function sendNvpRequest(array $requestNvp, $sandbox = false)
             $responseNvp[$name] = $matches['value'][$offset];
         }
     }
- 
+    
     //Verificando se deu tudo certo e, caso algum erro tenha ocorrido,
     //gravamos um log para depuração.
     if (isset($responseNvp['ACK']) && $responseNvp['ACK'] != 'Success') {
+        if ($sandbox)   {
+            echo "<html><body><h1>Houve um erro</h1><pre>" . print_r($responseNvp, true) . "</pre></body></html>";
+        }
+        
         for ($i = 0; isset($responseNvp['L_ERRORCODE' . $i]); ++$i) {
             $message = sprintf("PayPal NVP %s[%d]: %s\n",
                                $responseNvp['L_SEVERITYCODE' . $i],
                                $responseNvp['L_ERRORCODE' . $i],
                                $responseNvp['L_LONGMESSAGE' . $i]);
- 
+
             error_log($message);
         }
     }
- 
     return $responseNvp;
 }
+    

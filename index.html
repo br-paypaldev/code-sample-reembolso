@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PayPal Brasil - Demo - Reembolso</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function defineAcao(frm)    {
+               if (frm.vAmount.value == "")  {
+                   frm.action = 'refundTransaction-full.php';
+               }    else {
+                   frm.action = 'refundTransaction-partial.php';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Demo - Estorno de transações PayPal</h1>
+        <h3>Para fazer um estorno parcial informe o valor a ser devolvido.<br />
+            Para um estorno completo, apenas informe o código da transação a ser estornada.<br />
+            O estorno é processado automaticamente</h3>
+        <form action="" method="POST" id="frmEstorno" onsubmit="return defineAcao(this)">
+            <label>TransactionId: <input type="text" name="transactionId" required autofocus size="20" maxlength="20" id="transactionId" /></label>
+            <label>Valor: <input    type="text" 
+                                    placeholder="(deixe vazio para estorno integral)" 
+                                    name="vAmount"
+                                    id="vAmount" 
+                                    size="10" 
+                                    maxlength="10"
+                                    pattern="[0-9]+([\,|\.][0-9]+)?" 
+                                    title="O valor deve ser um número com duas casas decimais"/></label>
+            <input type="submit" value=" Estornar " />
+        </form>
+        <footer><h6>Esta página é para transações de teste</h6></footer>
+    </body>
+</html>
